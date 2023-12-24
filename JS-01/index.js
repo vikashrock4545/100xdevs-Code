@@ -3,7 +3,7 @@
 // }
 
 // function sub(a, b) {
-//     return a - b;
+//     return (a - b);
 // }
 
 // function calArithmetic(a, b, func) {
