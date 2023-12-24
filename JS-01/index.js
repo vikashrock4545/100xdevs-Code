@@ -42,6 +42,6 @@
 // let str = "Vikash Rock";
 const user ={
     nam: "Vikash Rock",
-    age: 22
+    age: 23
 }
 let nw = JSON.stringify(user);
