@@ -11,17 +11,17 @@
 //     return val;
 // }
 
-// // console.log(calArithmetic(10, 10, sum));
-// // let i = 31;
-// // function counter() {
-// //     if(i) {
-// //         i--;
-// //     console.log(i);
-// //     } else {
-// //         clearInterval();
-// //     }
-// // }
-// // setInterval(counter, 100);
+// console.log(calArithmetic(10, 10, sum));
+// let i = 31;
+// function counter() {
+//     if(i) {
+//         i--;
+//     console.log(i);
+//     } else {
+//         clearInterval();
+//     }
+// }
+//   setInterval(counter, 100);
 
 // function displayTime() {
 //     const now = new Date();
@@ -33,13 +33,13 @@
 //     console.log(`${hours}:${minutes}:${seconds}`);
 //   }
   
-// //   const prev = new Date().getSeconds();
-// //   setTimeout(displayTime, 1000);
-// //   const curr = new Date().getSeconds();
-// //   console.log(curr-prev);
+//   const prev = new Date().getSeconds();
+//   setTimeout(displayTime, 1000);
+//   const curr = new Date().getSeconds();
+//   console.log(curr-prev);
 //   setInterval(displayTime, 1000);
   
-// let str = "Vikash Rock";
+//   let str = "Vikash Rock";
 const user ={
     nam: "Vikash Rock",
     age: 23
