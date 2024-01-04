@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="render"></div>
+    <script>
+        // function GetPersonData() {
+        //     fetch("https://fakerapi.it/api/v1/persons")
+        //     .then(function(response){
+        //         response.json()
+        //         .then(function(finalData) {
+        //             console.log(finalData)
+        //         })
+        //     })
+        // }
+        
+        // Writing the above code in different format, it's is much cleaner.
+        async function GetPersonData() {
+            const response = await fetch("https://fakerapi.it/api/v1/persons");
+            const finalData = await response.json();
+            document.getElementById("render").innerHTML = JSON.stringify(finalData.data)
+        }
+    </script>
+    <button onclick="GetPersonData()">Get list</button>
+</body>
+</html>
