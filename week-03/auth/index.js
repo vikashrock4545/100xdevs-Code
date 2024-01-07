@@ -135,7 +135,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://vikashr4545:vikashr4545@cluster0.wh0eb0p.mongodb.net/newuser');
+mongoose.connect('mongodb+srv://vikashr4545:<password>@cluster0.wh0eb0p.mongodb.net/newuser');
 
 const app = express();
 app.use(express.json())
