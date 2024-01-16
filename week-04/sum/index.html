@@ -1,0 +1,28 @@
+<html>
+    <script>
+        // function getSum() {
+        //     const firstNumber = document.getElementById('fnumber').value
+        //     const secondNumber = document.getElementById('snumber').value
+        //     document.getElementById('sum').innerText = "Sum is " + (parseInt(firstNumber) + 
+        //         parseInt(secondNumber))
+        // }
+        //  Using the fetch function(Not exposing the backend logic).
+        async function getSum() {
+            const firstNumber = document.getElementById('fnumber').value
+            const secondNumber = document.getElementById('snumber').value 
+            // You can use also remote server to retrieve the logic.
+            const response = await fetch("http://localhost:3000/sum?a=" + firstNumber + "&b=" + secondNumber)
+            const ans = await response.text()
+            document.getElementById('sum').innerHTML = "Sum is " + ans;
+        }
+    </script>
+    <body>
+        <input type="text" placeholder="first number" id="fnumber"></input> <br><br>
+        <input type="text" placeholder="second number" id="snumber"></input> <br><br>
+        <button type="submit" onclick="getSum()">Calculate Sum</button> 
+        <p id="sum"></p>
+        <!-- without the submit button
+        <input oninput="getSum()" type="text" placeholder="first number" id="fnumber"></input> <br></br>
+        <input oninput="getSum()" type="text" placeholder="second number" id="snumber"></input> <br></br> -->
+    </body>
+</html>
