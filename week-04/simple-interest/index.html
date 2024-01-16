@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple-interst</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    // Using async ans await instead of .then().
+    // Debouncing - to reduce the unnecessary request to server(we won't send the request to 
+    // the server if user enters within 100ms)
+    let timeout;
+    function debounceGetInterest() {
+        // if this debouncegetinterest is called again within 100ms then old clock clearred and 
+        // new clock started else we will send the request to the server.
+        clearTimeout(timeout)
+        timeout = setTimeout(function() {
+            getInterest2();
+        }, 100)
+    }
+    async function getInterest() {
+        const principle = document.getElementById('principle').value
+        const rate = document.getElementById('rate').value
+        const time = document.getElementById('time').value
+        const params = new URLSearchParams({
+            p: principle,
+            r: rate,
+            t: time
+        });
+        const url = `http://localhost:3000/interest?${params.toString()}`;
+        const response = await fetch(url);
+        // const response = await fetch("http://localhost:3000/interest?p="+principle+"&r="+rate+"&t="+time)
+        const ans = await response.json()
+        document.getElementById("interest").innerHTML = "Simple Interest is " + ans.interest +
+            " and Total is " + ans.total
+    }
+    // Using .then() syntax.
+    function getInterest2() {
+        const principle = document.getElementById('principle').value
+        const rate = document.getElementById('rate').value
+        const time = document.getElementById('time').value
+        // fetch("http://localhost:3000/interest?p="+principle+"&r="+rate+"&t="+time).
+        //     then(function(response) {
+        //         response.json().
+        //             then(function(ans) {
+        //                 document.getElementById("interest").innerHTML = "Simple Interest is " + ans.interest +
+        //                     " and Total is " + ans.total
+        //             })
+        //     })
+        // we can implement axios instead of using fetch
+        axios.get("http://localhost:3000/interest?p="+principle+"&r="+rate+"&t="+time).
+            then(function(response) {
+                document.getElementById("interest").innerHTML = "Simple Interest is " + response.data.interest +
+                    " and Total is " + response.data.total
+            })
+    }
+</script>
+<body>
+    <input oninput="debounceGetInterest()" type="text" placeholder="principle" id="principle"></input> <br><br>
+    <input oninput="debounceGetInterest()" type="text" placeholder="rate" id="rate"></input> <br><br>
+    <input oninput="debounceGetInterest()" type="text" placeholder="time in years" id="time"></input> <br><br>
+    <!-- <button onclick="getInterest()">Calculate Simple Interest</button> -->
+    <p id="interest"></p>
+</body>
+</html>
