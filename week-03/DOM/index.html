@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live NodeList Example</title>
+</head>
+<body>
+
+  <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <script>
+    // Selecting all list items with a live NodeList
+    var listItems = document.querySelectorAll('#myList li');
+
+    // Logging the initial length of the NodeList
+    console.log('Initial Length:', listItems.length); // Output: 3
+
+    // Adding a new list item dynamically
+    var newItem = document.createElement('li');
+    newItem.textContent = 'Item 4';
+    document.getElementById('myList').appendChild(newItem);
+
+    // Logging the updated length of the NodeList
+    console.log('Updated Length:', listItems.length); // Output: 4 (Automatically updates)
+  </script>
+
+</body>
+</html>
