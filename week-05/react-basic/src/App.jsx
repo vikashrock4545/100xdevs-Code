@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react"
-
+import { ToDos } from "./Button"
 function App() {
   // const [count, setCount] = useState(0)
   const [todos, settodos] = useState([{
@@ -19,6 +19,7 @@ function App() {
       description: "New task Description",
       completed: false
     }])
+    // console.log(todos)
   }
 
   return (
@@ -30,18 +31,6 @@ function App() {
           // eslint-disable-next-line react/jsx-key
           return <ToDos title={todo.title} description={todo.description} />
         })}
-    </div>
-  )
-}
-
-function ToDos(props) {
-  // function onClickHandler() {
-  //   props.setCount(props.count + 1)
-  // }
-  return (
-    <div>
-    <h1>{props.title}</h1>
-    <h2>{props.description}</h2>
     </div>
   )
 }
