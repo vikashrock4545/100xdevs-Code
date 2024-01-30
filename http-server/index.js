@@ -56,7 +56,7 @@ const users = [{
   }]
 }]
 
-app.get('/', function(req, res){
+app.get('/', (req, res) => {
   const numberOfKidney = users[0].kidneys.length;
   let numberOfUnhealthyKidney = 0;
   for(let i = 0; i < numberOfKidney; i++) {
@@ -70,7 +70,7 @@ app.get('/', function(req, res){
   })
 })
 
-app.post('/', function(req, res){
+app.post('/', (req, res) => {
   const isHealthy = req.body.isHealthy;
   users[0].kidneys.push({
     healthy: isHealthy
@@ -80,7 +80,7 @@ app.post('/', function(req, res){
   })
 })
 
-app.put('/', function(req, res){
+app.put('/', (req, res) => {
   let numberOfUnhealthyKidney = 0;
   for(let i=0; i<users[0].kidneys.length; i++){
     if(!users[0].kidneys[i].healthy) {
@@ -101,7 +101,7 @@ app.put('/', function(req, res){
   }
 })
 
-app.delete('/', function(req, res){
+app.delete('/', (req, res) => {
   const newKidney = [];
   let toDeleteKidney = 0;
   for(let i=0; i<users[0].kidneys.length;i++) {
