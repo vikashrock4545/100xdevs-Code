@@ -1,17 +1,22 @@
 // import { response } from 'express'
 import { useEffect, useState } from 'react'
-function App() {
 
+function useTodos() {
   const [todos, setTodos] = useState([])
   useEffect(() => {
     setInterval(() => {
-      fetch("http://localhost:3000/todos")
+      fetch("http://localhost:3001/todos")
       .then(async (response) => {
         const json = await response.json()
         setTodos(json.todos)
       })
-    }, 20000)
+    }, 2000)
   }, [])
+  return todos
+}
+
+function App() {
+  const todos = useTodos()
   
   return (
     <div style={{display: "flex"}}>
