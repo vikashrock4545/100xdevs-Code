@@ -56,4 +56,20 @@ app.get('/todos', (req, res) => {
     })
 })
 
-app.listen(3000)
+app.get('/todo', (req, res) => {
+    
+    for(let i = 0; i < todos.length; i++) {
+        if(todos[i].id === parseInt(req.query.id, 10)) {
+            res.json({
+                todos: todos[i]
+            });
+            return;
+        }
+    }
+    res.json({
+        message: "No to do found"
+    });
+});
+
+
+app.listen(3001)
