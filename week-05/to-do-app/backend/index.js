@@ -8,12 +8,12 @@ app.use(cors())
 app.use(express.json())
 app.post('/todos', async function(req, res) {
     const createPayload = req.body
+    console.log(createPayload)
     const response = createToDo.safeParse(createPayload)
     if(!response.success) {
         res.status(404).json({
             message: "Wrong input types."
         })
-        return
     } else {
         await todo.create({
             title: response.data.title,
@@ -68,4 +68,4 @@ app.put('/completed', async function(req, res) {
     }
 })
 
-app.listen(3000)
+app.listen(3001)

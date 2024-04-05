@@ -51,13 +51,13 @@ app.get('/todos', (req, res) => {
             randomToDos.push(randomToDo)
         }
     }
+    
     res.json({
         todos: randomToDos
     })
 })
 
 app.get('/todo', (req, res) => {
-    
     for(let i = 0; i < todos.length; i++) {
         if(todos[i].id === parseInt(req.query.id, 10)) {
             res.json({
@@ -72,4 +72,4 @@ app.get('/todo', (req, res) => {
 });
 
 
-app.listen(3001)
+app.listen(3000)
